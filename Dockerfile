@@ -8,7 +8,8 @@ ENV HOME /home/haskell
 WORKDIR /home/haskell
 USER haskell
 
+# setup path for cabal executables
+ENV PATH ~/.cabal/bin:.cabal-sandbox/bin:$PATH
+
 # set the locale (an unset locale can cause runtime errors)
-RUN echo "en_US.UTF-8 UTF-8" >> /var/lib/locales/supported.d/local
-RUN dpkg-reconfigure locales
 ENV LANG en_US.UTF-8
